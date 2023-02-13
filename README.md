@@ -1,2 +1,2 @@
-# Analyze-Data-WeRateDogs
+# Analyze Data WeRateDogs
 Wrangling and Analyze Data WeRateDogs Twitter archive 
