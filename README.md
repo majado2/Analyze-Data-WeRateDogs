@@ -1,36 +1,40 @@
-# (Wrangling and Analyze Data WeRateDogs Twitter r archive )
-## by (Abdulmjeed Adahasi)
+# WeRateDogs Twitter Archive Analysis
 
+This project wrangles and analyzes data from the **WeRateDogs** Twitter account. It combines tweet metadata, image predictions, and engagement metrics to explore how users interact with dog‑related content on Twitter.
 
 ## Dataset
+The following files form the basis of the analysis:
 
->get WeRateDogs Twitter archive data  from https://twitter.com/dog_rates?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+- `twitter-archive-enhanced.csv` – Original tweet data supplied by WeRateDogs.
+- `image-predictions.tsv` – Machine learning predictions of the dog breed appearing in each tweet's image.
+- `Twitter_archive_master.csv` – Cleaned master dataset produced after combining and tidying all sources.
 
-**Data Wrangling summary**
-In this analysis, I checked the data from the missing values and also made sure of the correct data type. I also corrected some ages that were written incorrectly to the closest logical result option, and also I dropped all rows that do not contain a specification for the user type or the gender of the user because it is essential to our research. I added a column For the age calculated from the date of birth. I also added a column for the day the trip started in a week calculated from the date the trip started. I also added a column for the duration of the trip in minutes calculated from the duration of the trip in seconds.
+Additional notebooks and scripts in this repository demonstrate the wrangling process and exploratory analysis.
 
+## Data Wrangling Summary
+The data required extensive cleaning to address missing values, inconsistent data types, and erroneous entries. Important steps included:
 
+1. Converting timestamps and other fields to appropriate types.
+2. Removing or correcting records with inaccurate information.
+3. Creating new features such as dog age and engagement totals.
+4. Merging the image predictions and additional tweet metrics into a single master table.
+
+Details of these steps can be found in `wrangle_act.ipynb` and the accompanying `wrangle_report.pdf`.
 
 ## Summary of Findings
+Analysis of the cleaned dataset revealed several insights:
 
-> It started with three tables, the first for tweet information, the second for the machine's analysis of dog
-photos, and the third for total likes and retweets.\
-You clean the data and group it together In view of the available data, we find a lot of loss and inaccuracy. It
-is really difficult to give judgments based on the types of dogs or the rate of dogs, and this is what took me
-to another direction, which is the interaction of users with the type of tweet, and what is the most\
-interaction, is it likes or retweets, and indeed I find that likes are more than retweets Also, it appears to me
-through the results that the tweets that contain a video have more interaction than the tweets that have
-pictures only
+- Tweets that include **videos** tend to receive more likes and retweets than those containing only images.
+- Machine learning predictions of dog breeds were often inconsistent, limiting breed‑specific conclusions.
+- Dog names in the dataset do not necessarily correspond to breed information and are sometimes missing or incorrect.
 
-## Note 
+These observations highlight the challenges of working with user‑generated content and automated image classification. Full exploration and visualizations are available in `act_report.ipynb` and `act_report.pdf`.
 
+## Repository Contents
+- `wrangle_act.ipynb` – Notebook used to clean and merge the raw datasets.
+- `wrangle_report.ipynb`/`wrangle_report.pdf` – Documentation of the wrangling approach.
+- `act_report.ipynb`/`act_report.pdf` – Exploratory analysis and final report of key findings.
+- `twitter-api.py` – Script used to gather additional data via the Twitter API.
 
-We took a sample of the image analysis by machine learning and unfortunately 3
-different and incorrect possibilities We also took a sample of the negative possibilities, and
-indeed a picture of a dog appeared For these reasons, machine learning may not have
-sufficient accuracy to identify the dog species I checked the names of the dogs, and they do
-not necessarily mean the type of dog, just names that were named by the owners of the dogs
-We cannot judge the data provided to us by the most popular or most rated dogs, which is
-one of the reasons for the research
-Conclusion The average engagement with tweets that contain videos is more than the
-average for tweets that contain images only
+---
+Created by **Abdulmjeed Adahasi** as part of the Udacity Data Analyst Nanodegree.
